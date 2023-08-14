@@ -43,3 +43,21 @@ func TestUnpackInvalidString(t *testing.T) {
 		})
 	}
 }
+
+func TestUnpackWithNewStrings(t *testing.T) {
+	tests := []struct {
+		input    string
+		expected string
+	}{
+		{input: "d\n5abc", expected: "d\n\n\n\n\nabc"},
+		{input: "da\n3", expected: "da\n\n\n"},
+	}
+	for _, tc := range tests {
+		tc := tc
+		t.Run(tc.input, func(t *testing.T) {
+			result, err := Unpack(tc.input)
+			require.NoError(t, err)
+			require.Equal(t, tc.expected, result)
+		})
+	}
+}
