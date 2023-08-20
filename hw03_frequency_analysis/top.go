@@ -12,9 +12,9 @@ func Top10(str string) []string {
 	frecMap := make(map[string]int)
 
 	for _, s := range stringArr {
-		word := (strings.TrimRightFunc(s, func(r rune) bool {
-			return !unicode.IsLetter(r) && !unicode.IsNumber(r)
-		}))
+		word := strings.TrimRightFunc(s, func(r rune) bool {
+			return !unicode.IsLetter(r) && !unicode.IsNumber(r) && !unicode.IsMark(r)
+		})
 		frecMap[word]++
 	}
 
