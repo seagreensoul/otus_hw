@@ -73,10 +73,7 @@ func (dl *list) PushBack(v interface{}) *ListItem {
 }
 
 func (dl *list) Remove(i *ListItem) {
-	if (i.Next == nil) && (i.Prev == nil) {
-		dl.FirstItem = &ListItem{nil, nil, nil}
-		dl.LastItem = &ListItem{nil, nil, nil}
-	} else if i.Prev == nil {
+	if i.Prev == nil {
 		if dl.FirstItem.Next != nil {
 			dl.FirstItem = dl.FirstItem.Next
 			dl.FirstItem.Prev = nil

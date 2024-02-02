@@ -70,8 +70,6 @@ func TestList(t *testing.T) {
 		require.Equal(t, []int{20, 30}, elems)
 
 		l.PushFront(10)
-		//back := l.Back()
-		//l.Remove(back)
 
 		new_elems := make([]int, 0, l.Len())
 
